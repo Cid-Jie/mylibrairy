@@ -1,0 +1,11 @@
+{% for author in authors %}
+    <tr>
+        <td>{{ author.lastname }}</td>
+        <td>{{ author.firstname }}</td>
+        <td>{{ author.age }}</td>
+        <td>
+            <a href="{{ path('app_author_show', {'id': author.id}) }}">show</a>
+            <a href="{{ path('app_author_edit', {'id': author.id}) }}">edit</a>
+        </td>
+    </tr>
+{% endfor %}

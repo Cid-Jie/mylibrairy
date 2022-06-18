@@ -40,6 +40,38 @@ class AuthorController extends AbstractController
         ]);
     }
 
+    #[Route('/admin/list', name: 'app_author_admin_get_list', methods: ['GET'])]
+    public function getPartialList(AuthorRepository $authorRepository): Response
+    {
+        return $this->render('author/_listAuthors.html.twig', [
+            'authors' => $authorRepository->findAll()
+        ]);
+    }
+
+    #[Route('/admin', name: 'app_author_admin_get', methods: ['GET'])]
+    public function adminGet(): Response
+    {
+        return $this->render('author/admin.html.twig');
+    }
+
+    #[Route('/admin', name: 'app_author_admin', methods: ['POST'])]
+    public function admin(AuthorRepository $authorRepository, Request $request): Response
+    {
+        $lastname = $request->get('lastname');
+        $firstname = $request->get('firstname');
+
+        if (!empty($lastname) && !empty($firstname)) {
+            $author = new Author();
+            $author->setLastname($lastname);
+            $author->setFirstname($firstname);
+            $author->setAge(0);
+            
+            $authorRepository->add($author, true);
+        }
+
+        return new Response();
+    }
+
     #[Route('/{id}', name: 'app_author_show', methods: ['GET'])]
     public function show(Author $author): Response
     {

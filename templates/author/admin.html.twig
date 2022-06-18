@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Gestion des auteurs{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <div class="row">
+            <div class="col-6">
+                <form id="newAuthorForm">
+                    <p>
+                        <label class="form-label">Nom : </label>
+                        <input name="lastname" id="lastname" class="form-control">
+                    </p>
+
+                    <p>
+                        <label class="form-label">Prénom : </label>
+                        <input name="firstname" id="firstname" class="form-control">
+                    </p>
+
+                    <p>
+                        <input type="submit" value="Ok" class="btn btn-primary">
+                    </p>
+                </form>
+            </div>
+
+            <div class="col-6">
+
+             <table class="table">
+                <thead>
+                    <tr>
+                        <th>Lastname</th>
+                        <th>Firstname</th>
+                        <th>Age</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody id="listContent">
+
+                </tbody>
+            </table>
+            
+            </div>
+        </div>
+    </main>
+
+    <script src="/script/script.js"></script>
+{% endblock %}
