@@ -1,4 +1,15 @@
+@import "~bootstrap/scss/bootstrap";
+@import "variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
 body {
     background: url('../images/librairy_book.jpg');
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: auto;
 }
-@import "~bootstrap/scss/bootstrap";
+
+h1 {
+    color: $color-white;
+    font-family: 'Courgette';
+}
