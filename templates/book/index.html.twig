@@ -6,5 +6,38 @@
 <main class="container">
     <h1 class="text-center mt-5 mb-5">La Librairie du bonheur</h1>
 
+<header class="container">
+    <div class="row">
+        <h1 class="text-center">Liste des livres</h1>    
+    </div>
+</header>
+
+<nav class="container-fluid">
+    <div class="row">
+        <p><a href="{{path('app_book_add')}}">Ajouter un nouveau livre</a></p>
+    </div>
+</nav>
+
+<main class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Nb de pages</th>
+                    <th>Auteur</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td><a href="/book/{{ book.id }}">{{ book.title }}</a></td>
+                        <td>{{ book.nbOfPages }}</td>
+                        <td>{{ book.author.firstname }} {{ book.author.lastname }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </main>
 {% endblock %}

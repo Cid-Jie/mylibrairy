@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Détails de {{book.title}} {% endblock %}
+
+{% block body %}
+    <main class="container">
+        <div class="row">
+            <h1 class="text-center mb-5">{{ book.title }}</h1>
+        </div>
+
+        <div class="row">
+            <h1 class="">Description: </h1>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Voir description
+            </button>
+            
+
+            <div class="collapse" id="collapseExample">
+                <p class="col-12 border rounded m-3 p-3">{{ book.description }}</p>
+            </div>
+        </div>
+
+        <hr class="m-5">
+
+        <h1>Details : </h1>
+        <ul>
+            <li>Nombre de pages : {{book.nbOfPages}}</li>
+            <li>Auteur : {{ book.author.firstname }} {{ book.author.lastname }}</li>
+        </ul>
+
+        <hr class="m-5">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for chapter in book.chapters %}
+                    <tr>
+                        <td>{{ chapter.number }}</td>
+                        <td>{{ chapter.description }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+{% endblock %}
