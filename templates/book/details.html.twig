@@ -28,7 +28,23 @@
             <li>Auteur : {{ book.author.firstname }} {{ book.author.lastname }}</li>
         </ul>
 
-        <hr class="m-5">
+        {% if movie is not empty %}
+        
+            <hr class="m-5">
+
+            <h2>Film : {{ movie.Title }}</h2>
+            <div class="row">
+                <img class="col-4 img-fluid" src="{{ movie.Poster }}">
+                <div class="col-8">
+                    <ul>
+                        <li>Titre : {{ movie.Title }}</li>
+                        <li>Année : {{ movie.Year }}</li>
+                        <li>Réalisateur : {{ movie.Director }}</li>
+                    </ul>
+                </div>
+            </div>
+            
+        {% endif %}
 
         <table class="table">
             <thead>

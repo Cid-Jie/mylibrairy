@@ -1,3 +1,5 @@
+if(document.getElementById('newAuthorForm')){
+
 const newAuthorForm = document.getElementById('newAuthorForm');
 
 newAuthorForm.addEventListener('submit', function (event) {
@@ -27,3 +29,4 @@ function loadAuthors() {
 }
 
 loadAuthors();
+}
