@@ -9,5 +9,7 @@
 import './styles/app.scss';
 require('bootstrap');
 
+import './js/script.js';
+
 // start the Stimulus application
 import './bootstrap';
