@@ -9,8 +9,8 @@
         </div>
 
         <div class="row">
-            <h1 class="">Description: </h1>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <h1 class="description">Description: </h1>
+            <button class="btn btn-primary" id="button-description" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Voir description
             </button>
             
@@ -32,8 +32,8 @@
         
             <hr class="m-5">
 
-            <h2>Film : {{ movie.Title }}</h2>
-            <div class="row">
+            <h1>Film : {{ movie.Title }}</h1>
+            <div class="row mb-5">
                 <img class="col-4 img-fluid" src="{{ movie.Poster }}">
                 <div class="col-8">
                     <ul>
@@ -49,7 +49,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Numéro</th>
+                    <th>Chapitre</th>
                     <th>Description</th>
                 </tr>
             </thead>
@@ -62,5 +62,6 @@
                 {% endfor %}
             </tbody>
         </table>
+
     </main>
 {% endblock %}

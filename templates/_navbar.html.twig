@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">Librairie</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="/">Accueil</a>
+				</li>
+				{% if is_granted('ROLE_ADMIN') %}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Admin
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li>
+								<a class="dropdown-item" href="/author/new">Ajouter un auteur</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="/book/add">Ajouter un livre</a>
+							</li>
+						</ul>
+					</li>
+				{% endif %}
+				{% if app.user %}
+					<a class="nav-link">Bonjour
+						{{ app.user.email }}<a>
+							<a class="nav-link" href="{{ path('logout') }}">
+								Se déconnecter</a>
+						{% else %}
+							<a class="nav-link" href="{{ path('login') }}">
+								Se connecter</a>
+						{% endif %}
+					</ul>
+					<form class="d-flex">
+						<input class="form-control me-2" type="search" placeholder="Rechercher un ouvrage" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
+		</nav>

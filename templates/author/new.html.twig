@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
 
-{% block title %}New Author{% endblock %}
+{% block title %}Création d'un auteur{% endblock %}
 
 {% block body %}
-    <h1>Create new Author</h1>
-
-    {{ include('author/_form.html.twig') }}
-
-    <a href="{{ path('app_author_index') }}">back to list</a>
+    <main class="container">
+        <h1 class="text-center mt-5 mb-5">Ajouter un auteur à la collection</h1>
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input type="submit" value="Envoyer">
+        {{ form_end(form) }}
+        <a href="{{ path('app_author_index') }}">back to list</a>
+    </main>
 {% endblock %}
